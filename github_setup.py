@@ -4,7 +4,7 @@ import time
 
 # --- НАСТРОЙКИ ---
 GITHUB_USER = "da007"
-REPO_NAME = "010-CollegeApp"
+REPO_NAME = "college-app"
 GITHUB_URL = f"https://github.com/{GITHUB_USER}/{REPO_NAME}.git"
 
 GITIGNORE_CONTENT = """# Фронтенд (Next.js)
@@ -81,7 +81,6 @@ def main():
     time.sleep(1)
 
     # 3. Git инициализация и пуш
-    run_command("git init")
     run_command("git add .")
     run_command('git commit -m "feat: Initial commit. Full-stack CollegeApp (Flask + Next.js)"')
     run_command("git branch -M main")
@@ -91,7 +90,7 @@ def main():
     if "origin" in check_remote.stdout:
         run_command("git remote remove origin")
     
-    run_command(f"git remote add origin {GITHUB_URL}")
+    run_command(f"git remote set-url origin {GITHUB_URL}")
     print(f"⏳ Отправляем код на GitHub ({GITHUB_URL})...")
     run_command("git push -u origin main")
 
