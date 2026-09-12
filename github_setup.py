@@ -90,7 +90,7 @@ def main():
     if "origin" in check_remote.stdout:
         run_command("git remote remove origin")
     
-    run_command(f"git remote set-url origin {GITHUB_URL}")
+    run_command(f"git remote add origin {GITHUB_URL}")
     print(f"⏳ Отправляем код на GitHub ({GITHUB_URL})...")
     run_command("git push -u origin main")
 
